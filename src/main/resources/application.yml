@@ -1,0 +1,22 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/SIS_VENTA
+    username: fenixeres1996
+    password: jose1996
+  jpa:
+    show:
+      sql: true
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+server:
+  port: 9001
+  error:
+    whitelabel:
+      enable: true
