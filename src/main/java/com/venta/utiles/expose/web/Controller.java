@@ -15,7 +15,8 @@ public class Controller {
     ClientService clientService;
 
     @PostMapping(
-            value = "/create/client", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+            value = "/create/client", consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEmpty createClient(@RequestBody Client client) {
         return clientService.addClient(client);
     }

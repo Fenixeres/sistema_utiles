@@ -30,7 +30,7 @@ public class ClientDao implements Serializable {
     private String nombres;
 
     @Column(name = "dni")
-    private int dni;
+    private String dni;
 
     @Column(name = "direccion")
     private String direccion;

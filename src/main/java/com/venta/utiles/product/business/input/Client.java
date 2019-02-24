@@ -12,7 +12,7 @@ public class Client implements Serializable {
     private String apPaterno;
     private String apMaterno;
     private String nombres;
-    private Integer dni;
+    private String dni;
     private String direccion;
     private String idDistrito;
 }
