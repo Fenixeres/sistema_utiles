@@ -17,7 +17,7 @@ public interface ClientRepository extends CrudRepository<ClientDao, String> {
     ClientDao findByDni(@Param("dni") String dni);
 
     @Async
-    @Query("SELECT v FROM ClientDao v where v.dni = :dni or v.state = :pstate")
-    List<ClientDao> findListByDni(@Param("dni") String dni, @Param("pstate") String state);
+    @Query("SELECT v FROM ClientDao v where v.state = :pstate")
+    List<ClientDao> findByState(@Param("pstate") String state);
 
 }

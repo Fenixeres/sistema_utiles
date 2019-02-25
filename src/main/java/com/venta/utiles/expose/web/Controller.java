@@ -8,7 +8,10 @@ import com.venta.utiles.product.service.ClientServiceList;
 import com.venta.utiles.product.service.ClientServiceUpd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/services/sell/utils/v1")
@@ -28,6 +31,12 @@ public class Controller {
             value = "/list/client/{dni}", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ClientResponse getClient(@PathVariable("dni") String dni) {
         return serviceList.getClient(dni);
+    }
+
+    @GetMapping(
+            value = "/list/client", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public List<ClientResponse> getClients(@RequestParam("state") String state) {
+        return serviceList.getClients(state);
     }
 
     @PostMapping(

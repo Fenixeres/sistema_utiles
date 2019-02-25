@@ -8,6 +8,9 @@ import com.venta.utiles.product.util.ResponseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ClientServiceListImplc implements ClientServiceList {
 
@@ -34,5 +37,30 @@ public class ClientServiceListImplc implements ClientServiceList {
         }
 
         return response;
+    }
+
+    @Override
+    public List<ClientResponse> getClients(String state) {
+        List<ClientResponse> list = new ArrayList<>();
+        ClientResponse response = new ClientResponse();
+        try {
+            List<ClientDao> byDni = clientRepository.findByState(state);
+            if (byDni != null && !byDni.isEmpty()) {
+                for (ClientDao dao : byDni) {
+                    response = responseMapper.responseMapper(dao);
+                    list.add(response);
+                }
+            } else {
+                response.setCode("MS0001");
+                response.setDescription("Estado ingresado no exite");
+                list.add(response);
+            }
+        } catch (Exception e) {
+            response.setCode("MS0001");
+            response.setDescription("Error al realizar busqueda por estado");
+            list.add(response);
+        }
+
+        return list;
     }
 }
