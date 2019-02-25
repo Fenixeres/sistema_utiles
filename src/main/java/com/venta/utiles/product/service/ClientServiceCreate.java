@@ -5,8 +5,6 @@ import com.venta.utiles.product.business.output.ResponseEmpty;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface ClientService {
-
+public interface ClientServiceCreate {
     ResponseEmpty addClient(Client client);
-
 }

@@ -37,4 +37,10 @@ public class ClientDao implements Serializable {
 
     @Column(name = "id_distrito")
     private String idDistrito;
+
+    @Column(name = "fecha_registro")
+    private String fechaRegistro;
+
+    @Column(name = "estado")
+    private String state;
 }

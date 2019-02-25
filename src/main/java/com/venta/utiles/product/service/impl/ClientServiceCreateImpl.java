@@ -4,20 +4,21 @@ import com.venta.utiles.product.business.input.Client;
 import com.venta.utiles.product.business.output.ResponseEmpty;
 import com.venta.utiles.product.entity.dao.ClientDao;
 import com.venta.utiles.product.repository.ClientRepository;
-import com.venta.utiles.product.service.ClientService;
+import com.venta.utiles.product.service.ClientServiceCreate;
 import com.venta.utiles.product.util.ErrorCode;
 import com.venta.utiles.product.util.RequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClientServiceImpl extends ErrorCode implements ClientService {
+public class ClientServiceCreateImpl extends ErrorCode implements ClientServiceCreate {
 
     @Autowired
     ClientRepository clientRepository;
 
     @Autowired
     RequestMapper requestMapper;
+
 
     @Override
     public ResponseEmpty addClient(Client client) {
@@ -53,5 +54,4 @@ public class ClientServiceImpl extends ErrorCode implements ClientService {
         }
         return empty;
     }
-
 }
